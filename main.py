@@ -8,102 +8,104 @@ arquivo1 = ListaEncadeada()
 arquivo2 = ListaEncadeada()
 arquivo3 = ListaEncadeada()
 arquivo4 = ListaEncadeada()
-arquivo5 = ListaEncadeada()
-arquivo1.inserirLista('bola')
-arquivo2.inserirLista('bola')
-arquivo3.inserirLista('bola')
-arquivo3.inserirLista('bola')
-dado = str(input('Qual dado deseja pesquisar? Caso desejar pesquisar mais de um dado, separe-os por espaços\n')).split()
+arquivo5 = ListaEncadeada()   
 
-cont = 0
-for c in dado:
-    d2 = {}
-    d2.clear()
-    d2 = {'Arquivo1': arquivo1.buscaLista(c),'Arquivo2': arquivo2.buscaLista(c), 'Arquivo3': arquivo3.buscaLista(c), 'Arquivo4': arquivo4.buscaLista(c), 'Arquivo5':arquivo5.buscaLista(c)}
-    for a, f in sorted(d2.items(), key=itemgetter(1), reverse=True):
-        print(f'O {a} tem {f} vez(es) a palavra {dado[cont]}')              
-    cont += 1
-    print('*' * 25)
-    d2 = {}
-    d2.clear()
-   
-
-'''print('********** Arvore Binária de Busca **********')
+print('********** \33[34mArvore Binária de Busca\33[m **********')
 while True:
-    print('Digite:\n[ 1 ] Para inserir um dado em um arquivo\n[ 2 ] Para buscar um termo\n[ 3 ] Para mostrar todos os dados cadastrados\n[ 4 ] Para sair  ')
+    print('Digite:\n[ \33[34m1\33[m ] Para inserir um dado em um arquivo\n[ \33[34m2\33[m ] Para buscar um termo\n[ \33[34m3\33[m ] Para mostrar todos os dados cadastrados\n[ \33[34m4\33[m ] Para sair  ')
     sleep(1)
-    menu = int(input("Qual a opção escolhida? "))
+    while True: 
+        m = input("Qual a opção escolhida? ")
+        if m.isnumeric():
+            menu = int(m)
+            break
+        else:
+            print('\33[31mERRO! Digite um número inteiro de 1 à 4\33[m')
     if menu == 1:
         while True:
-            print('Digite:\n[ 1 ] Para inserir um dado no arquivo1\n[ 2 ] Para inserir um dado no arquivo2\n[ 3 ] Para inserir um dado no arquivo3\n[ 4 ] Para inserir um dado no arquivo4\n[ 5 ] Para inserir um dado no arquivo5\n[ 6 ] Para retornar ao menu inicial')
-            opçao = int(input("Qual a opção escolhida? "))            
+            print('Digite:\n[ \33[34m1\33[m ] Para inserir um dado no arquivo1\n[ \33[34m2\33[m ] Para inserir um dado no arquivo2\n[ \33[34m3\33[m ] Para inserir um dado no arquivo3\n[ \33[34m4\33[m ] Para inserir um dado no arquivo4\n[ \33[34m5\33[m ] Para inserir um dado no arquivo5\n[ \33[34m6\33[m ] Para retornar ao menu inicial')
+            sleep(1)
+            while True:
+                o = input("Qual a opção escolhida? ")
+                if o.isnumeric():
+                    opçao = int(o)
+                    break
+                else:
+                    print('\33[31mErro! Digite um número inteiro de 1 à 6.\33[m')
             if opçao == 1:
-                termo = input("Qual palavra você quer inserir? \n")
+                termo = input("Qual palavra você quer inserir? \n").strip().lower()
                 arvore.inserirArv(termo, arquivo1)
                 sleep(1)                
-                print(f'Palavra "{termo}" inserida com sucesso!')
+                print(f'\33[32mPalavra "{termo}" inserida com sucesso!\33[m')
                 print('*' * 45) 
                 sleep(1)
             elif opçao == 2:
-                termo = input("Qual palavra você quer inserir? \n")
+                termo = input("Qual palavra você quer inserir? \n").strip().lower()
                 arvore.inserirArv(termo, arquivo2)
                 sleep(1)
-                print(f'Palavra "{termo}" inserida com sucesso!')
+                print(f'\33[32mPalavra "{termo}" inserida com sucesso!\33[m')
                 print('*' * 45)
                 sleep(1)
             elif opçao == 3:
-                termo = input("Qual palavra você quer inserir? \n")
+                termo = input("Qual palavra você quer inserir? \n").strip().lower()
                 arvore.inserirArv(termo, arquivo3)
                 sleep(1)
-                print(f'Palavra "{termo}" inserida com sucesso!')
+                print(f'\33[32mPalavra "{termo}" inserida com sucesso!\33[m')
                 print('*' * 45)
                 sleep(1)
             elif opçao == 4:
-                termo = input("Qual palavra você quer inserir? \n")
+                termo = input("Qual palavra você quer inserir? \n").strip().lower()
                 arvore.inserirArv(termo, arquivo4)
                 sleep(1)
-                print(f'Palavra "{termo}" inserida com sucesso!')
+                print(f'\33[32mPalavra "{termo}" inserida com sucesso!\33[m')
                 print('*' * 45)
                 sleep(1)
             elif opçao == 5:
-                termo = input("Qual palavra você quer inserir? \n")  
+                termo = input("Qual palavra você quer inserir? \n").strip().lower()  
                 arvore.inserirArv(termo, arquivo5)
                 sleep(1)
-                print(f'Palavra "{termo}" inserida com sucesso!')
+                print(f'\33[32mPalavra "{termo}" inserida com sucesso!\33[m')
                 print('*' * 45)
                 sleep(1)
             elif opçao == 6:
                 print('*' * 45)
                 break           
             else:
-                print('Discagem incorreta, tente novamente')
+                print('\33[31mDiscagem incorreta, tente novamente\33[m')
     elif menu == 2:
-        dado = str(input('Qual dado deseja pesquisar? '))
-        d2 = {'Arquivo1': arquivo1.buscaLista(dado),'Arquivo2': arquivo2.buscaLista(dado), 'Arquivo3': arquivo3.buscaLista(dado), 'Arquivo4': arquivo4.buscaLista(dado), 'Arquivo5':arquivo5.buscaLista(dado)}
-        print(d2)
-        for a, f in sorted(d2.items(), key=itemgetter(1), reverse=True):
-            print(f'O {a} tem {f} vez(es) a palavra {dado}')
-        print('*' * 40) 
+        dado = str(input('Qual dado deseja pesquisar? Caso desejar pesquisar mais de um dado, separe-os por espaços\n')).split()
+        print('*' * 45)
+        cont = 0
+        for c in dado:
+            d2 = {'Arquivo1': arquivo1.buscaLista(c.lower().strip()),'Arquivo2': arquivo2.buscaLista(c.lower().strip()),'Arquivo3': arquivo3.buscaLista(c.lower().strip()),'Arquivo4': arquivo4.buscaLista(c.lower().strip()),'Arquivo5': arquivo5.buscaLista(c.lower().strip())}
+            text = ''
+            for a, f in sorted(d2.items(), key=itemgetter(1), reverse=True):
+                text += f'O \33[34m{a}\33[m tem {f} vez(es) a palavra \33[32m{dado[cont].lower()}\33[m\n'
+            cont += 1
+            print(text)
+            print('*' * 45)
+            d2 = {} 
         sleep(1)
     elif menu == 3:
-        print('Arvore de arquivos:')
-        arvore.imprimirArv()        
+        print('**** \33[34mArvore de arquivos:\33[m ****')
+        arvore.buscarArv()        
         print()
-        print('Arquivo1:')
+        print('\33[34mArquivo1:\33[m')
         print(arquivo1)
-        print('Arquivo2:')
+        print('\33[34mArquivo2:\33[m')
         print(arquivo2)
-        print('Arquivo3:')
+        print('\33[34mArquivo3:\33[m')
         print(arquivo3)
-        print('Arquivo4:')
+        print('\33[34mArquivo4:\33[m')
         print(arquivo4)
-        print('Arquivo5:')
+        print('\33[34mArquivo5:\33[m')
         print(arquivo5)
     elif menu == 4:
         print('Saindo...')
         break
     else:
-        print('Discagem incorreta, tente novamente')'''
+        print('\33[31mDiscagem incorreta, tente novamente\33[m')
+        sleep(1)
 
    
 

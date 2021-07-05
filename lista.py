@@ -24,16 +24,11 @@ class ListaEncadeada:
 
 
     def buscaLista(self, elem):
+        self.freq = 0
         ponteiro = self.cabeca
-        r = 0
         while(ponteiro):
             if ponteiro.dado == elem:
                 self.freq += 1    
             ponteiro = ponteiro.next
-        
-        return self.freq
-
-    
-    def aumentar(self):
-        self.freq += 1
+                    
         return self.freq
